@@ -35,7 +35,7 @@ pipeline {
         stage('pre-deploy') {
             steps {
                 sh '''
-                    ${DERBY_BIN}/ij<<EOF 
+                    ${DERBY_BIN}/ij<<EOF
                         connect 'jdbc:derby://localhost:1527/WM;create=true;user=WM;password=WM';
                         exit;
                     EOF
@@ -59,6 +59,7 @@ pipeline {
         }
         stage('post-deploy') {
             steps {
+                sh 'chmod +x ./skrypt.sh'
                 sh '''./skrypt.sh'''
             }
             post {
@@ -69,4 +70,3 @@ pipeline {
         }
     }
 }
-
