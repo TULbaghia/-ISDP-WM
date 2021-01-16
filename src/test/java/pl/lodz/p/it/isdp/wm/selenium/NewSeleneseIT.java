@@ -16,7 +16,7 @@ public class NewSeleneseIT {
     
     @Test
     public void testSimple() throws Exception {
-        System.setProperty("webdriver.gecko.drive", "../geckodriver");
+        System.setProperty("webdriver.gecko.drive", "/home/student/JavaTools/geckodriver");
         
         WebDriver driver = new FirefoxDriver();
 
