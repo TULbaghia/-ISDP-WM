@@ -27,7 +27,7 @@ public class NewSeleneseIT {
 
         // Check the title of the page
         // Wait for the page to load, timeout after 10 seconds
-        (new WebDriverWait(driver, 10)).until((ExpectedCondition<Boolean>) (WebDriver d) -> d.getTitle().contains("NetBeans"));
+        (new WebDriverWait(driver, 60)).until((ExpectedCondition<Boolean>) (WebDriver d) -> d.getTitle().contains("NetBeans"));
         
         driver.quit();
     }
