@@ -43,12 +43,13 @@ pipeline {
             }
             post {
                 success {
-                    echo 'application'
+                    echo 'Pre-deploy application'
                 }
             }
         }
         stage('deploy') {
             steps {
+                sh '${PAYARA_HOME}/bin/asadmin flush-connection-pool WMCP'
                 sh '${PAYARA_HOME}/bin/asadmin --host ${PAYARA_HOST} --port ${PAYARA_PORT} deploy --force=true --name=${APP_NAME} ./target/WM-1.1.war'
             }
             post {
@@ -64,7 +65,7 @@ pipeline {
             }
             post {
                 success {
-                    echo 'application'
+                    echo 'Initialize application database'
                 }
             }
         }
