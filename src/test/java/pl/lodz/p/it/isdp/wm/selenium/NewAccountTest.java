@@ -51,7 +51,7 @@ public class NewAccountTest {
         driver.get(url);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		logIn(userName, userPassword);
+		logIn(username, password);
 		assertTrue(driver.findElement(By.xpath("//h4")).getText().contains("DMitchell"));
  		
         checkIfAccountExists();
@@ -75,11 +75,11 @@ public class NewAccountTest {
         driver.findElement(By.className("glyphicon-log-in")).click();
         driver.findElement(By.name("j_username")).click();
         driver.findElement(By.name("j_username")).clear();
-        driver.findElement(By.name("j_username")).sendKeys(username);
+        driver.findElement(By.name("j_username")).sendKeys(userName);
 
         driver.findElement(By.name("j_password")).click();
         driver.findElement(By.name("j_password")).clear();
-        driver.findElement(By.name("j_password")).sendKeys(password);
+        driver.findElement(By.name("j_password")).sendKeys(userPassword);
 
         driver.findElement(By.xpath("//input[@type='submit']")).click();
 		
