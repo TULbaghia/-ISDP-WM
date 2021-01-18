@@ -69,7 +69,6 @@
                     <suiteXmlFiles>
                         <file>src/main/resources/suite.xml</file>
                     </suiteXmlFiles>
-                    <parallel>classes</parallel>
                 </configuration>
             </plugin>
             <plugin>
