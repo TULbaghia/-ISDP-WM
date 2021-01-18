@@ -1,16 +1,15 @@
 package pl.lodz.p.it.isdp.wm.selenium;
  
 import java.util.concurrent.TimeUnit;
-import org.junit.Assert;
-//import org.junit.jupiter.api.AfterEach;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
+import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -56,12 +55,12 @@ public class LocationTest {
  
         driver.findElement(By.xpath("//input[@type='submit']")).click();
  
-        Assert.assertTrue(driver.findElement(By.xpath("//h4")).getText().contains("JDoe"));
+        assertTrue(driver.findElement(By.xpath("//h4")).getText().contains("JDoe"));
  
         driver.findElement(By.partialLinkText("Lokalizacja")).click();
         driver.findElement(By.xpath("//a[@href='../location/listLocations.xhtml']")).click();
  
-        Assert.assertEquals("AA-01-04-04", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
+        assertEquals("AA-01-04-04", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
  
         driver.findElement(By.partialLinkText("Lokalizacja")).click();
         driver.findElement(By.xpath("//a[@href='../location/createNewLocation.xhtml']")).click();
@@ -76,17 +75,17 @@ public class LocationTest {
         driver.findElement(By.linkText("Lokalizacja")).click();
         driver.findElement(By.xpath("//a[@href='../location/listLocations.xhtml']")).click();
  
-        Assert.assertEquals("ZZ-00-00-00", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
-        Assert.assertEquals("CAŁA", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td[2]")).getText());
+        assertEquals("ZZ-00-00-00", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
+        assertEquals("CAŁA", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td[2]")).getText());
         driver.findElement(By.name("j_idt26:j_idt27:10:onlyWarehouse:j_idt38")).click();
         driver.findElement(By.name("DeleteLocationForm:j_idt30")).click();
  
-        Assert.assertNotEquals(driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText(), "ZZ-00-00-00");
+        assertNotEquals(driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText(), "ZZ-00-00-00");
  
         driver.findElement(By.linkText("Wylogowanie")).click();
         driver.findElement(By.name("j_idt26:j_idt30")).click();
  
-        Assert.assertTrue(driver.findElement(By.xpath("//h4")).getText().contains("brak autoryzacji"));
+        assertTrue(driver.findElement(By.xpath("//h4")).getText().contains("brak autoryzacji"));
     }
  
     @AfterMethod
