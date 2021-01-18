@@ -44,28 +44,29 @@ public class NewAccountTest {
 
     @Test
     public void AddAccountTest() throws Exception {
-		url = "http://localhost:8080/faces/main/index.xhtml";
-        username = "DMitchell";
-        password = "P@ssw0rd";
+		String url = "http://localhost:8080/faces/main/index.xhtml";
+        String username = "DMitchell";
+        String password = "P@ssw0rd";
 		
         driver.get(url);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
 		logIn(userName, userPassword);
-		Assert.assertTrue(driver.findElement(By.xpath("//h4")).getText().contains("DMitchell")) 		
+		assertTrue(driver.findElement(By.xpath("//h4")).getText().contains("DMitchell"));
+ 		
         checkIfAccountExists();
-		Assert.assertNotEquals("ZZbigniewski", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
+		assertNotEquals("ZZbigniewski", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
 		
 		registerAccount();
 		
 		checkIfAccountExists();
-		Assert.assertEquals("ZZbigniewski", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
+		assertEquals("ZZbigniewski", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
 		
 		removeAccount();
-		Assert.assertNotEquals("ZZbigniewski", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
+		assertNotEquals("ZZbigniewski", driver.findElement(By.xpath("//form[@id='j_idt26']/table/tbody/tr[last()]/td")).getText());
 		
 		logOut();
-		Assert.assertTrue(driver.findElement(By.xpath("//h4")).getText().contains("brak autoryzacji"));
+		assertTrue(driver.findElement(By.xpath("//h4")).getText().contains("brak autoryzacji"));
 		
 		driver.quit();      
     }
