@@ -3,6 +3,7 @@
   <test name="parallel-tests">
     <classes>
       <class name="pl.lodz.p.it.isdp.wm.selenium.ChangePasswordTest"/>
+      <class name="pl.lodz.p.it.isdp.wm.selenium.LocationTest"/>
     </classes>
   </test>
 </suite>
