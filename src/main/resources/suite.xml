@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Parallel Test Suite" parallel="classes">
+  <test name="parallel-tests">
+    <classes>
+      <class name="pl.lodz.p.it.isdp.wm.selenium.ChangePasswordTest"/>
+    </classes>
+  </test>
+</suite>

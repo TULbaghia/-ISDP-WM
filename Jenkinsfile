@@ -24,7 +24,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'mvn package'
+                sh 'mvn package -DskipTests'
             }
             post {
                 success {
@@ -69,5 +69,16 @@ pipeline {
                 }
             }
         }
+       stage('parallel-tests') {
+           steps {
+                sh 'mvn test'
+            }
+            post {
+                success {
+                    echo 'Parallel tests done'
+                }
+            }
+        }
+    }
     }
 }
