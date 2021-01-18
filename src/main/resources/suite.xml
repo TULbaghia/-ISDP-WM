@@ -5,6 +5,7 @@
       <class name="pl.lodz.p.it.isdp.wm.selenium.ChangePasswordTest"/>
       <class name="pl.lodz.p.it.isdp.wm.selenium.LocationTest"/>
       <class name="pl.lodz.p.it.isdp.wm.selenium.AddProductTest"/>
+	  <class name="pl.lodz.p.it.isdp.wm.selenium.NewAccountTest"/>	  
     </classes>
   </test>
 </suite>
