@@ -28,7 +28,7 @@ public class ChangePasswordTest {
     
     @BeforeMethod
     public void setUp() {
-        System.setProperty("webdriver.gecko.driver", "/home/student/-ISDP-WM/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "/home/student/JavaTools/geckodriver");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
            
         FirefoxBinary firefoxBinary = new FirefoxBinary();
