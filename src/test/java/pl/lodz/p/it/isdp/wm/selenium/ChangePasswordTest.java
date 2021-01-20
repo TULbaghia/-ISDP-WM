@@ -1,5 +1,6 @@
 package pl.lodz.p.it.isdp.wm.selenium;
 
+import static java.lang.Thread.sleep;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import static org.testng.Assert.assertEquals;
@@ -19,7 +20,8 @@ public class ChangePasswordTest {
     WebDriver driver;
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws InterruptedException {
+        sleep(2);
         System.setProperty("webdriver.gecko.driver", "/home/student/JavaTools/geckodriver");
         FirefoxOptions firefoxOptions = new FirefoxOptions();
 
